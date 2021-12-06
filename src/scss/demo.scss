@@ -1,0 +1,220 @@
+.cb-demo {
+    $root:&;
+
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+
+    &.-inverse {
+        color:$color-base;
+        background:$color-graybase;
+    }
+
+    &-content {
+        display:flex;
+        align-items:center;
+        text-align:center;
+        height:130vh;
+
+        &.-full {
+            height:100vh;
+        }
+    }
+
+    &-container {
+        width:100%;
+    }
+
+    &-heading {
+        position:relative;
+
+        // In inversion mode the block must be inverted twice to be visible
+        #{$root}.-inverse & {
+            mix-blend-mode:difference;
+        }
+
+        // If we need 'transparent' text
+        #{$root}.-inverse &.-normal {
+            mix-blend-mode:normal;
+        }
+    }
+
+    &-shapes {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:-10px; // negative padding is needed to cover all glyphs in the font
+        overflow:hidden;
+
+        #{$root}.-inverse & {
+            background:#FBE9D8;
+        }
+
+        #{$root}.-inverse &.-none {
+            background:none;
+        }
+    }
+
+    &-shape {
+        position:absolute;
+        top:0;
+        left:0;
+        transform:translate(50vw, 25vh);
+
+        // Circles
+        &.-v1 {
+            width:50vw;
+            height:50vw;
+            margin:(-50vw / 2) 0 0 (-50vw / 2);
+
+            border-radius:50%;
+            background:#4945DC;
+        }
+
+        &.-v2 {
+            width:35vw;
+            height:35vw;
+            margin:(-35vw / 2) 0 0 (-35vw / 2);
+
+            border-radius:50%;
+            background:#BFE7D1;
+        }
+
+        &.-v3 {
+            width:20vw;
+            height:20vw;
+            margin:(-20vw / 2) 0 0 (-20vw / 2);
+
+            border-radius:50%;
+            background:#EBD079;
+        }
+
+        // Triangles
+        &.-v4 {
+            width:0;
+            height:0;
+            margin:(-650px / 2) 0 0 -600px;
+
+            border-style:solid;
+            border-width:0 600px 650px 600px;
+            border-color:transparent transparent #b692fe transparent;
+        }
+
+        &.-v5 {
+            width:0;
+            height:0;
+            margin:(-450px / 2) 0 0 -400px;
+
+            border-style:solid;
+            border-width:0 400px 450px 400px;
+            border-color:transparent transparent #ff9b73 transparent;
+        }
+
+        &.-v6 {
+            width:0;
+            height:0;
+            margin:(-250px / 2) 0 0 -200px;
+
+            border-style:solid;
+            border-width:0 200px 250px 200px;
+            border-color:transparent transparent #ffc972 transparent;
+        }
+
+        // Stack circles
+        &.-v7 {
+            width:18vw;
+            height:18vw;
+            margin:(-18vw / 2) 0 0 (-18vw / 2);
+
+            border-radius:50%;
+            background:#FF4163;
+
+            &:nth-child(2n) {
+                background:#FED9EF;
+            }
+        }
+
+        // Squares
+        &.-v8 {
+            width:20vw;
+            height:30vw;
+            margin:(-30vw / 2) 0 0 (-20vw / 2);
+
+            background:#dfe5ee;
+        }
+
+        &.-v9 {
+            width:20vw;
+            height:25vw;
+            margin:(-25vw / 2) 0 0 (-20vw / 2);
+
+            background:#e9cbb4;
+        }
+
+        // Jelly blob
+        &.-v10 {
+            width:25vw;
+            height:25vw;
+            margin:(-25vw / 2) 0 0 (-25vw / 2);
+
+            border-radius:50%;
+            background:#B095F7;
+        }
+
+        // Stack single color
+        &.-v11 {
+            width:15vw;
+            height:15vw;
+            margin:(-15vw / 2) 0 0 (-15vw / 2);
+
+            border-radius:50%;
+            background:#b692fe;
+        }
+    }
+
+    &-header {
+        position:relative;
+
+        // Magic here: 'screen' blend mode makes black area transparent
+        mix-blend-mode:screen;
+
+        // In inverse mode make multiply
+        #{$root}.-inverse & {
+            mix-blend-mode:multiply;
+        }
+
+        // Fill background
+        &:before {
+            content:"";
+            position:absolute;
+            top:-1px; // negative value to overlap extra pixels
+            left:-1px;
+            right:-1px;
+            bottom:-11px;
+
+            background:#fff;
+
+            #{$root}.-inverse & {
+                background:#000;
+            }
+        }
+
+        h1, h2 {
+            position:relative;
+
+            color:#000; // black will become transparent
+
+            font-size:13vw;
+            font-weight:900;
+            line-height:1;
+            letter-spacing:-0.02em;
+            text-align:center;
+            text-transform:uppercase;
+
+            #{$root}.-inverse & {
+                color:$color-base; // white will become transparent
+            }
+        }
+    }
+}

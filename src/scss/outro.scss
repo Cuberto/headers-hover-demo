@@ -1,0 +1,62 @@
+.cb-outro {
+    $root:&;
+
+    &-content {
+        padding:80px 0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height:100vh;
+    }
+
+    &-container {
+        flex:1;
+        width:100%;
+        padding:0 40px;
+        text-align:center;
+
+        @media (min-width:$screen-md-min) {
+            padding:0 120px;
+        }
+
+        @media (min-width:$screen-lg-min) {
+            padding:0 180px;
+        }
+
+        @media (min-width:$screen-xl-min) {
+            padding:0 220px;
+        }
+    }
+
+    &-header {
+        h2 {
+            font-size:4vw;
+            font-weight:900;
+            line-height:1;
+            text-transform:uppercase;
+        }
+    }
+
+    &-navs {
+        margin:40px 0 0 0;
+    }
+
+    &-nav {
+        display:block;
+        padding:5px 0;
+
+        font-size:2vw;
+        font-weight:bold;
+        line-height:150%;
+        text-transform:uppercase;
+
+        a {
+            opacity:0.5;
+            text-decoration:none;
+
+            &:hover {
+                opacity:1;
+            }
+        }
+    }
+}
