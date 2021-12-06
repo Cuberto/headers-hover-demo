@@ -1,15 +1,15 @@
 ## Cuberto Headers Hover Inspiration
 
-### Setup
+### Frontend dependencies
+GSAP (https://greensock.com/gsap/)
+
+### Setup demo project
 
 `npm install` or `yarn install`
 
-### Start
+### Start demo project
 
 `gulp` or `gulp serve` deploy app and start browsersync server + watchers
-
-### Frontend dependencies
-GSAP (https://greensock.com/gsap/)
 
 ## File structure
 ```bash
